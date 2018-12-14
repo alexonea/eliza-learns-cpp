@@ -19,8 +19,20 @@
 
 
 #include <iostream>
+#include <string>
+#include <csignal>
 
-int main(int argc, const char *argv[])
+static const char* PROMPT = "ELIZA> ";
+static       bool  bDone  = false;
+
+void
+signalHandler(int signum)
+{
+  bDone = true;
+}
+
+int
+main(int argc, const char *argv[])
 {
   std::cout << "Welcome to Eliza++ v0.1 Copyright (C) 2018 Alexandru N. Onea\n"
             << "This program comes with ABSOLUTELY NO WARRANTY.\n"
@@ -28,6 +40,37 @@ int main(int argc, const char *argv[])
             << "under certain conditions. For more information please contact\n"
             << "Alexandru N. Onea <alexandru.onea@toporcomputing.com>\n";
 
+  signal(SIGINT, signalHandler);
+
+  do
+  {
+    std::cout << PROMPT;
+
+    /*
+     * Read a line from standard input.
+     */
+    std::string sInputLine;
+    std::getline(std::cin, sInputLine);
+
+    /*
+     * Check for EOF and (possibly) other read errors.
+     */
+    if (std::cin.bad())
+    {
+      std::cerr << "Oops! Something bad happened while reading from stdin.\n";
+      break;
+    }
+    else if (std::cin.eof())
+    {
+      break;
+    }
+
+    /*
+     * Echo it for now.
+     */
+    std::cout << sInputLine << "\n";
+
+  } while (!bDone);
 
   std::cout << "\nBye.\n";
   return 0;
