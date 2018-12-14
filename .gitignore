@@ -33,3 +33,8 @@
 
 # CMake
 /build/
+
+# IDE
+.cproject
+.project
+.settings
