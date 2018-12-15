@@ -69,7 +69,7 @@ main(int argc, const char *argv[])
     /*
      * Match the input string and produce a reply.
      */
-    std::cout << elizapp::matchInput(sInputLine) << "\n";
+    std::cout << elizapp::elizaReply(sInputLine) << "\n";
 
   } while (!bDone);
 

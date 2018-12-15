@@ -1,5 +1,5 @@
 /*
- *  rules.h
+ *  replyrule.cc
  *
  *  Copyright (C) 2018 Alexandru N. Onea <alexandru.onea@toporcomputing.com>
  *
@@ -17,14 +17,24 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef RULES_H_
-#define RULES_H_
-
-#include <string>
+#include "replyrule.h"
 
 namespace elizapp
 {
-  std::string elizaReply(const std::string &sInputStr);
-}
+  ReplyRule::ReplyRule(const std::string &sPattern, ReplySetData replies)
+  : m_regex{sPattern, std::regex_constants::icase}
+  , m_replies{replies}
+  {}
 
-#endif /* RULES_H_ */
+  bool
+  ReplyRule::matchInput(const std::string &sInStr, std::string &sOutStr) const
+  {
+     if (!std::regex_search(sInStr, m_regex))
+       return false;
+
+     std::string out = m_replies.chooseReply();
+
+     sOutStr.swap(out);
+     return true;
+  }
+}

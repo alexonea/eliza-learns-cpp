@@ -18,32 +18,25 @@
  */
 
 #include "rules.h"
-#include "replyset.h"
+#include "replyrule.h"
 
 #include <utility>
 
 namespace elizapp
 {
-  using RulesMap = std::vector<std::pair<std::regex, ReplySet>>;
-
-  static const
-  std::regex
-  _REGEX_(const std::string &sPattern)
-  {
-    return std::regex(sPattern, std::regex_constants::icase);
-  }
+  using RulesMap = std::vector<ReplyRule>;
 
   static const
   RulesMap s_vElizaRules
   {
       {
-        _REGEX_("(?:^|\\W)hello(?:$|\\W)"),
+       "(?:^|\\W)hello(?:$|\\W)",
         {
           "How do you do. Please state your problem."
         }
       },
       {
-        _REGEX_("(?:^|\\W)computer(?:$|\\W)"),
+        "(?:^|\\W)computer(?:$|\\W)",
         {
           "Do computers worry you?",
           "What do you think about machines?",
@@ -54,13 +47,14 @@ namespace elizapp
   };
 
   std::string
-  matchInput(const std::string &sInputStr)
+  elizaReply(const std::string &sInputStr)
   {
-    for (const auto & ex : s_vElizaRules)
+    std::string sOutputStr;
+    for (const auto & rule : s_vElizaRules)
     {
-      if (std::regex_search(sInputStr, ex.first))
+      if (rule.matchInput(sInputStr, sOutputStr))
       {
-        return ex.second.chooseReply();
+        return sOutputStr;
       }
     }
 
