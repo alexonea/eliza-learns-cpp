@@ -17,10 +17,11 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-
 #include <iostream>
 #include <string>
 #include <csignal>
+
+#include "rules.h"
 
 static const char* PROMPT = "ELIZA> ";
 static       bool  bDone  = false;
@@ -68,7 +69,7 @@ main(int argc, const char *argv[])
     /*
      * Echo it for now.
      */
-    std::cout << sInputLine << "\n";
+    std::cout << elizapp::matchInput(sInputLine) << "\n";
 
   } while (!bDone);
 
