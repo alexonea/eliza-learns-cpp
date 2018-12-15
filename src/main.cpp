@@ -39,7 +39,7 @@ main(int argc, const char *argv[])
             << "This program comes with ABSOLUTELY NO WARRANTY.\n"
             << "This is free software, and you are welcome to redistribute it\n"
             << "under certain conditions. For more information please contact\n"
-            << "Alexandru N. Onea <alexandru.onea@toporcomputing.com>\n";
+            << "Alexandru N. Onea <alexandru.onea@toporcomputing.com>\n\n";
 
   signal(SIGINT, signalHandler);
 
@@ -67,7 +67,7 @@ main(int argc, const char *argv[])
     }
 
     /*
-     * Echo it for now.
+     * Match the input string and produce a reply.
      */
     std::cout << elizapp::matchInput(sInputLine) << "\n";
 
