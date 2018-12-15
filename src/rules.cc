@@ -27,23 +27,44 @@ namespace elizapp
   using RulesMap = std::vector<ReplyRule>;
 
   static const
+  std::string
+  __REGEX__(const std::string &sWord)
+  {
+    return "(?:^|\\W)" + sWord + "(?:$|\\W)";
+  }
+
+  static const
   RulesMap s_vElizaRules
   {
+    {
+      __REGEX__("hello"),
       {
-       "(?:^|\\W)hello(?:$|\\W)",
-        {
-          "How do you do. Please state your problem."
-        }
-      },
-      {
-        "(?:^|\\W)computer(?:$|\\W)",
-        {
-          "Do computers worry you?",
-          "What do you think about machines?",
-          "Why do you mention computers?",
-          "What do you think machines have to do with your problem?"
-        }
+        "How do you do. Please state your problem."
       }
+    },
+    {
+      __REGEX__("computer"),
+      {
+        "Do computers worry you?",
+        "What do you think about machines?",
+        "Why do you mention computers?",
+        "What do you think machines have to do with your problem?"
+      }
+    },
+    {
+      __REGEX__("name"),
+      {
+        "I am not interested in names"
+      }
+    },
+    {
+    __REGEX__("sorry"),
+      {
+        "Please don't apologize",
+        "Apologies are not necessary",
+        "What feelings do you have when you apologize"
+      }
+    }
   };
 
   std::string
