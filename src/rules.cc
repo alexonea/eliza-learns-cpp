@@ -62,13 +62,105 @@ namespace elizapp
       {
         "Please don't apologize",
         "Apologies are not necessary",
-        "What feelings do you have when you apologize"
+        "What feelings do you have when you apologize?"
       }
     },
     {
       __REGEX__("I remember"),
       {
-        "Do you often think of <X>?"
+        "Do you often think of <X>?",
+        "Does thinking of <X> bring anything else to mind?",
+        "What else do you remember?",
+        "Why do you recall <X> right now?",
+        "What in the present situation reminds you of <X>?",
+        "What is the connection between me and <X>?"
+      }
+    },
+    {
+      __REGEX__("do you remember"),
+      {
+        "Did you think I would forget <X>?",
+        "Why do you think I should recall <X> now?",
+        "What about <X>?",
+        "You mentioned <X>"
+      }
+    },
+    {
+      __REGEX__("if"),
+      {
+        "Do you really think its likely that <X>?",
+        "Do you wish that <X>?",
+        "What do you think about <X>?",
+        "Really-- if <X>?"
+      }
+    },
+    {
+      __REGEX__("I dreamt"),
+      {
+        "Really-- <X>?",
+        "Have you ever fantasized <X> while you were awake?",
+        "Have you dreamt <X> before?"
+      }
+    },
+    {
+      __REGEX__("I dreamed"),
+      {
+        "Really-- <X>?",
+        "Have you ever fantasized <X> while you were awake?",
+        "Have you dreamed <X> before?"
+      }
+    },
+    {
+      __REGEX__("dream about"),
+      {
+        "How do you feel about <X> in reality?"
+      }
+    },
+    {
+      __REGEX__("dream"),
+      {
+        "What does this dream suggest to you?",
+        "Do you dream often?",
+        "What persons appear in your dreams?",
+        "Don't you believe that dream has to do with your problem?"
+      }
+    },
+    {
+      __REGEX__("my mother"),
+      {
+        "Who else in your family <X>?",
+        "Tell me more about your family"
+      }
+    },
+    {
+      __REGEX__("my father"),
+      {
+        "Your father",
+        "Does he influence you strongly?",
+        "What else comes to mind when you think of your father?"
+      }
+    },
+    {
+      __REGEX__("I want"),
+      {
+        "What would it mean if you got <X>?",
+        "Why do you want <X>?",
+        "Suppose you got <X> soon"
+      }
+    },
+    {
+      __REGEX__("I am glad"),
+      {
+        "How have I helped you to be <X>?",
+        "What makes you happy just now",
+        "Can you explain why you are suddenly <X>?"
+      }
+    },
+    {
+      __REGEX__("I am sad"),
+      {
+        "I am sorry to hear you are depressed",
+        "I'm sure its not pleasant to be sad"
       }
     }
   };
