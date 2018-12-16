@@ -20,6 +20,7 @@
 #include <iostream>
 #include <string>
 #include <csignal>
+#include <stdexcept>
 
 #include "rules.h"
 
@@ -43,35 +44,49 @@ main(int argc, const char *argv[])
 
   signal(SIGINT, signalHandler);
 
-  do
+  try
   {
-    std::cout << PROMPT;
-
-    /*
-     * Read a line from standard input.
-     */
-    std::string sInputLine;
-    std::getline(std::cin, sInputLine);
-
-    /*
-     * Check for EOF and (possibly) other read errors.
-     */
-    if (std::cin.bad())
+    do
     {
-      std::cerr << "Oops! Something bad happened while reading from stdin.\n";
-      break;
-    }
-    else if (std::cin.eof())
-    {
-      break;
-    }
+      std::cout << PROMPT;
 
-    /*
-     * Match the input string and produce a reply.
-     */
-    std::cout << elizapp::elizaReply(sInputLine) << "\n";
+      /*
+       * Read a line from standard input.
+       */
+      std::string sInputLine;
+      std::getline(std::cin, sInputLine);
 
-  } while (!bDone);
+      /*
+       * Check for EOF and (possibly) other read errors.
+       */
+      if (std::cin.bad())
+      {
+        std::cerr << "Oops! Something bad happened while reading from stdin.\n";
+        break;
+      }
+      else if (std::cin.eof())
+      {
+        break;
+      }
+
+      /*
+       * Match the input string and produce a reply.
+       */
+      std::cout << elizapp::elizaReply(sInputLine) << "\n";
+
+    } while (!bDone);
+  }
+  catch (const std::exception &e)
+  {
+    std::cerr << "Oops! Something went wrong. This might help: "
+              << e.what() << "\n";
+    return 1;
+  }
+  catch (...)
+  {
+    std::cerr << "Oops! Something went really wrong. Sorry.\n";
+    return 1;
+  }
 
   std::cout << "\nBye.\n";
   return 0;

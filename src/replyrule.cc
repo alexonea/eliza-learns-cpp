@@ -60,9 +60,16 @@ namespace elizapp
 
   using ReplaceFunc = std::function<void(std::string&)>;
 
+  /*
+   * We must give arguments by value here because of the way the functions
+   * are created below. Since they are created only once at the first call
+   * of the viewport switching method, the parameters used in the creation
+   * of the functions are gone and thus, any reference to them is, well,
+   * the source of all evil.
+   */
   static
   void
-  doReplace(std::string &s, const std::regex &e, const std::string r)
+  doReplace(std::string &s, std::regex e, std::string r)
   {
     std::string sRes = std::regex_replace(s, e, r);
     s.swap(sRes);
@@ -78,7 +85,7 @@ namespace elizapp
         doReplace,
         _1,
         std::regex("(?:^|\\b)" + sPattern + "(?:$|\\b)"),
-        std::ref(sReplacement));
+        sReplacement);
   }
 
   std::string
@@ -91,7 +98,6 @@ namespace elizapp
      * We are lucky here that _ is considered a word character and contributes
      * to the regex match.
      */
-    static std::string sPattern = "(?:^|\\W)(you|I|me|am)(?:$|\\W)";
     static std::vector<ReplaceFunc> s_mViewpoints
     {
       __REPLACEMENT__("you", "_I_"),
@@ -102,7 +108,7 @@ namespace elizapp
 
     std::string sOutput{sInput};
     std::for_each(s_mViewpoints.begin(), s_mViewpoints.end(),
-        [&sOutput] (ReplaceFunc rfn)
+        [&sOutput] (const ReplaceFunc &rfn)
         {
           rfn(sOutput);
         }
