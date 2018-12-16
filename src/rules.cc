@@ -162,6 +162,12 @@ namespace elizapp
         "I am sorry to hear you are depressed",
         "I'm sure its not pleasant to be sad"
       }
+    },
+    {
+      __REGEX__("are like"),
+      {
+        "What resemblance do you see between <P> and <S>?"
+      }
     }
   };
 

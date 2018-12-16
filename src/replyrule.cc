@@ -40,13 +40,27 @@ namespace elizapp
     std::string out = m_replies.chooseReply();
 
     /*
+     * If reply contains a placeholder for a prefix, replace it here
+     */
+    {
+      auto it = out.find("<P>");
+      if (it != std::string::npos)
+      {
+        std::string sAppend = ReplyRule::switchViewpoint(match.prefix());
+        out.replace(it, 3, sAppend);
+      }
+    }
+
+    /*
      * If reply contains a placeholder for a suffix, replace it here
      */
-    auto it = out.find("<S>");
-    if (it != std::string::npos)
     {
-      std::string sAppend = ReplyRule::switchViewpoint(match.suffix());
-      out.replace(it, 3, sAppend);
+      auto it = out.find("<S>");
+      if (it != std::string::npos)
+      {
+        std::string sAppend = ReplyRule::switchViewpoint(match.suffix());
+        out.replace(it, 3, sAppend);
+      }
     }
 
     sOutStr.swap(out);
