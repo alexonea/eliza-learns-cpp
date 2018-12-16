@@ -58,11 +58,17 @@ namespace elizapp
       }
     },
     {
-    __REGEX__("sorry"),
+      __REGEX__("sorry"),
       {
         "Please don't apologize",
         "Apologies are not necessary",
         "What feelings do you have when you apologize"
+      }
+    },
+    {
+      __REGEX__("I remember"),
+      {
+        "Do you often think of <X>?"
       }
     }
   };

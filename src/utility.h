@@ -1,5 +1,5 @@
 /*
- *  replyrule.h
+ *  utility.h
  *
  *  Copyright (C) 2018 Alexandru N. Onea <alexandru.onea@toporcomputing.com>
  *
@@ -17,29 +17,25 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef REPLYRULE_H_
-#define REPLYRULE_H_
+#ifndef UTILITY_H_
+#define UTILITY_H_
 
-#include "replyset.h"
-
-#include <regex>
+#include <string>
 
 namespace elizapp
 {
-  using ReplySetData = std::initializer_list<std::string>;
-
-  class ReplyRule
+  namespace util
   {
-  public:
-    ReplyRule(const std::string &sPattern, ReplySetData replies);
+    std::string trim(const std::string &sInput)
+    {
+        auto first = sInput.find_first_not_of(' ');
+        if (first == std::string::npos)
+            return sInput;
 
-    bool matchInput(const std::string &sInStr, std::string &sOutStr) const;
-  private:
-    std::regex  m_regex;
-    ReplySet    m_replies;
-
-    static std::string switchViewpoint(const std::string &sInput);
-  };
+        auto last = sInput.find_last_not_of(' ');
+        return sInput.substr(first, (last - first + 1));
+    }
+  }
 }
 
-#endif /* REPLYRULE_H_ */
+#endif /* UTILITY_H_ */
