@@ -36,7 +36,7 @@ signalHandler(int signum)
 int
 main(int argc, const char *argv[])
 {
-  std::cout << "Welcome to Eliza++ v0.1 Copyright (C) 2018 Alexandru N. Onea\n"
+  std::cout << "Welcome to Eliza++ v1.0 Copyright (C) 2018 Alexandru N. Onea\n"
             << "This program comes with ABSOLUTELY NO WARRANTY.\n"
             << "This is free software, and you are welcome to redistribute it\n"
             << "under certain conditions. For more information please contact\n"
