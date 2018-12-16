@@ -68,52 +68,52 @@ namespace elizapp
     {
       __REGEX__("I remember"),
       {
-        "Do you often think of <X>?",
-        "Does thinking of <X> bring anything else to mind?",
+        "Do you often think of <S>?",
+        "Does thinking of <S> bring anything else to mind?",
         "What else do you remember?",
-        "Why do you recall <X> right now?",
-        "What in the present situation reminds you of <X>?",
-        "What is the connection between me and <X>?"
+        "Why do you recall <S> right now?",
+        "What in the present situation reminds you of <S>?",
+        "What is the connection between me and <S>?"
       }
     },
     {
       __REGEX__("do you remember"),
       {
-        "Did you think I would forget <X>?",
-        "Why do you think I should recall <X> now?",
-        "What about <X>?",
-        "You mentioned <X>"
+        "Did you think I would forget <S>?",
+        "Why do you think I should recall <S> now?",
+        "What about <S>?",
+        "You mentioned <S>"
       }
     },
     {
       __REGEX__("if"),
       {
-        "Do you really think its likely that <X>?",
-        "Do you wish that <X>?",
-        "What do you think about <X>?",
-        "Really-- if <X>?"
+        "Do you really think its likely that <S>?",
+        "Do you wish that <S>?",
+        "What do you think about <S>?",
+        "Really-- if <S>?"
       }
     },
     {
       __REGEX__("I dreamt"),
       {
-        "Really-- <X>?",
-        "Have you ever fantasized <X> while you were awake?",
-        "Have you dreamt <X> before?"
+        "Really-- <S>?",
+        "Have you ever fantasized <S> while you were awake?",
+        "Have you dreamt <S> before?"
       }
     },
     {
       __REGEX__("I dreamed"),
       {
-        "Really-- <X>?",
-        "Have you ever fantasized <X> while you were awake?",
-        "Have you dreamed <X> before?"
+        "Really-- <S>?",
+        "Have you ever fantasized <S> while you were awake?",
+        "Have you dreamed <S> before?"
       }
     },
     {
       __REGEX__("dream about"),
       {
-        "How do you feel about <X> in reality?"
+        "How do you feel about <S> in reality?"
       }
     },
     {
@@ -128,7 +128,7 @@ namespace elizapp
     {
       __REGEX__("my mother"),
       {
-        "Who else in your family <X>?",
+        "Who else in your family <S>?",
         "Tell me more about your family"
       }
     },
@@ -143,17 +143,17 @@ namespace elizapp
     {
       __REGEX__("I want"),
       {
-        "What would it mean if you got <X>?",
-        "Why do you want <X>?",
-        "Suppose you got <X> soon"
+        "What would it mean if you got <S>?",
+        "Why do you want <S>?",
+        "Suppose you got <S> soon"
       }
     },
     {
       __REGEX__("I am glad"),
       {
-        "How have I helped you to be <X>?",
+        "How have I helped you to be <S>?",
         "What makes you happy just now",
-        "Can you explain why you are suddenly <X>?"
+        "Can you explain why you are suddenly <S>?"
       }
     },
     {

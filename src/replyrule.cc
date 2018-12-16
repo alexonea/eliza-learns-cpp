@@ -42,7 +42,7 @@ namespace elizapp
     /*
      * If reply contains a placeholder for a suffix, replace it here
      */
-    auto it = out.find("<X>");
+    auto it = out.find("<S>");
     if (it != std::string::npos)
     {
       std::string sAppend = ReplyRule::switchViewpoint(match.suffix());
