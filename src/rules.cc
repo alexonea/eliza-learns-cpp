@@ -168,6 +168,208 @@ namespace elizapp
       {
         "What resemblance do you see between <P> and <S>?"
       }
+    },
+    {
+      __REGEX__("is like"),
+      {
+        "In what way is it that <P> is like <S>?",
+        "What resemblance do you see?",
+        "Could there really be some connection?",
+        "How?"
+      }
+    },
+    {
+      __REGEX__("alike"),
+      {
+        "In what way?",
+        "What similarities are there?"
+      }
+    },
+    {
+      __REGEX__("same"),
+      {
+        "What other connections do you see?"
+      }
+    },
+    {
+      __REGEX__("I was"),
+      {
+        "Were you really?",
+        "Perhaps I already knew you were <S>",
+        "Why do you tell me you were <S> now?"
+      }
+    },
+    {
+      __REGEX__("was I"),
+      {
+        "What if you were <S>?",
+        "Do you think you were <S>?",
+        "What would it mean if you were <S>?"
+      }
+    },
+    {
+      __REGEX__("I am"),
+      {
+        "In what way are you <S>?",
+        "Do you want to be <S>?"
+      }
+    },
+    {
+      __REGEX__("am I"),
+      {
+        "Do you believe you are <S>?",
+        "Would you want to be <S>?",
+        "You wish I would tell you you are <S>",
+        "What would it mean if you were <S>?"
+      }
+    },
+    {
+      __REGEX__("am"),
+      {
+        "Why do you say \"AM\"?",
+        "I don't understand that"
+      }
+    },
+    {
+      __REGEX__("are you"),
+      {
+        "Why are you interested in whether I am <S> or not?",
+        "Would you prefer if I weren't <S>?",
+        "Perhaps I am <S> in your fantasies"
+      }
+    },
+    {
+      __REGEX__("you are"),
+      {
+        "What makes you think I am <S>?"
+      }
+    },
+    {
+      __REGEX__("because"),
+      {
+        "Is that the real reason?",
+        "What other reasons might there be?",
+        "Does that reason seem to explain anything else?"
+      }
+    },
+    {
+      __REGEX__("were you"),
+      {
+        "Perhaps I was <S>",
+        "What do you think?",
+        "What if I had been <S>?"
+      }
+    },
+    {
+      __REGEX__("I can't"),
+      {
+        "Maybe you could <S> now",
+        "What if you could <S>?"
+      }
+    },
+    {
+      __REGEX__("I feel"),
+      {
+        "Do you often feel <S>?"
+      }
+    },
+    {
+      __REGEX__("I felt"),
+      {
+        "What other feelings do you have?"
+      }
+    },
+    {
+      /*
+       * Ugly hack, I am not proud. Will improve soon.
+       */
+      __REGEX__("I (.*) you"),
+      {
+        "Perhaps in your fantasy we <M> each other"
+      }
+    },
+    {
+      __REGEX__("why you don't")
+      ,
+      {
+        "Should you <S> yourself?",
+        "Do you believe I don't <S>?",
+        "Perhaps I will <S> in good time"
+      }
+    },
+    {
+      __REGEX__("yes"),
+      {
+        "You seem quite positive",
+        "Are you sure?",
+        "I understand"
+      }
+    },
+    {
+      __REGEX__("no"),
+      {
+        "Why not?",
+        "You are being a bit negative",
+        "Are you saying \"NO\" just to be negative?"
+      }
+    },
+    {
+      __REGEX__("someone"),
+      {
+        "Can you be more specific?"
+      }
+    },
+    {
+      __REGEX__("everyone"),
+      {
+        "Surely not everyone",
+        "Can you think of anyone in particular?",
+        "Who for example?",
+        "You are thinking of a special person"
+      }
+    },
+    {
+      __REGEX__("always"),
+      {
+        "Can you think of a specific example?",
+        "When?",
+        "What incident are you thinking of?",
+        "Really-- always?"
+      }
+    },
+    {
+      __REGEX__("what"),
+      {
+        "Why do you ask?",
+        "Does that question interest you?",
+        "What is it you really want to know?",
+        "What do you think?",
+        "What comes to your mind when you ask that?"
+      }
+    },
+    {
+      __REGEX__("perhaps"),
+      {
+        "You do not seem quite certain"
+      }
+    },
+    {
+      __REGEX__("are"),
+      {
+        "Did you think they might not be <S>?",
+        "Possibly they are <S>?"
+      }
+    },
+    {
+      __REGEX__("*"),
+      {
+        "Very interesting",
+        "I am not sure I understand you fully",
+        "What does that suggest to you?",
+        "Please continue",
+        "Go on",
+        "Do you feel strongly about discussing such things?"
+      }
     }
   };
 
@@ -183,6 +385,6 @@ namespace elizapp
       }
     }
 
-    return "What do you mean by that?";
+    return "At this point, you really managed to give me a mental breakdown!";
   }
 }

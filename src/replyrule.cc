@@ -63,6 +63,25 @@ namespace elizapp
       }
     }
 
+    /*
+     * If reply contains a placeholder for a middle section, replace it here
+     *
+     * Note: currently this is an ugly hack because there is no easy way to
+     * define patterns with middle groups (i.e. smth X smth Y smth, where X
+     * and Y are the patterns)
+     */
+    {
+      auto it = out.find("<M>");
+      if (it != std::string::npos)
+      {
+        if (match.size() > 1)
+        {
+          std::string sAppend = ReplyRule::switchViewpoint(match[1]);
+          out.replace(it, 3, sAppend);
+        }
+      }
+    }
+
     sOutStr.swap(out);
     return true;
   }
